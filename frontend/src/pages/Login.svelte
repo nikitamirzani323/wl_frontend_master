@@ -51,7 +51,7 @@
             throw new Error(message);
         } else {
             const json = await res.json();
-            client_ipaddress = json.real_ip;
+            client_ipaddress = json.container_ip;
             client_timezone = "Asia/Jakarta";
         }
     }
