@@ -6,11 +6,11 @@
 	import Login from "./pages/Login.svelte";
 	import Home from "./pages/home/Home.svelte";
 	import Company from "./pages/company/Company.svelte";
-	import Pasaran from "./pages/pasaran/Pasaran.svelte";
-	import Invoice from "./pages/invoice/Invoice.svelte";
+	import Admin from "./pages/admin/Admin.svelte";
 	import Setting from "./pages/setting/Setting.svelte";
-	import Domain from "./pages/domain/Domain.svelte";
 	import NotFound from "./pages/NotFound.svelte";
+	export let table_header_font;
+	export let table_body_font;
 	let token = localStorage.getItem("token");
 	let routes = "";
 	let isNav = false;
@@ -27,17 +27,15 @@
 			"/": wrap({
 				component: Home,
 			}),
-			"/domain": wrap({
-				component: Domain,
-			}),
-			"/invoice": wrap({
-				component: Invoice,
-			}),
 			"/company": wrap({
 				component: Company,
 			}),
-			"/pasaran": wrap({
-				component: Pasaran,
+			"/admin": wrap({
+				component: Admin,
+				props: {
+					table_header_font: table_header_font,
+					table_body_font: table_body_font,
+				},
 			}),
 			"/setting": wrap({
 				component: Setting,

@@ -7,7 +7,7 @@ import (
 	"syscall"
 
 	"github.com/joho/godotenv"
-	"github.com/nikitamirzani323/go_mastertoto/routers"
+	"github.com/nikitamirzani323/wl_frontend_master/routers"
 )
 
 func main() {
@@ -19,7 +19,7 @@ func main() {
 	go func() {
 		port := os.Getenv("PORT")
 		if port == "" {
-			port = "6062"
+			port = "2021"
 		}
 		if err := app.Listen(":" + port); err != nil {
 			log.Panic(err)

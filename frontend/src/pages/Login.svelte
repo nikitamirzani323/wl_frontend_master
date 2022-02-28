@@ -2,6 +2,10 @@
     import { Container, Row, Col, Button } from "sveltestrap";
     import { createForm } from "svelte-forms-lib";
     import * as yup from "yup";
+
+    let client_ipaddress = "";
+    let client_timezone = "";
+
     const schema = yup.object().shape({
         username: yup.string().required().matches(/^[a-zA-z0-9]+$/, "Username must Character A-Z or a-z or 1-9 ").max(30),
         password: yup.string().required().min(4).max(50)
@@ -25,6 +29,8 @@
             body: JSON.stringify({
                 username: username,
                 password: password,
+                ipaddress: client_ipaddress,
+                timezone: client_timezone,
             }),
         });
         const json = await res.json();
@@ -38,6 +44,18 @@
             window.location.href = "/";
         }
     }
+    async function initTimezone() {
+        const res = await fetch("api/healthz");
+        if (!res.ok) {
+            const message = `An error has occured: ${res.status}`;
+            throw new Error(message);
+        } else {
+            const json = await res.json();
+            client_ipaddress = json.real_ip;
+            client_timezone = "Asia/Jakarta";
+        }
+    }
+    initTimezone();
     $:{
         if ($errors.username || $errors.password){
             alert($errors.username+"\n"+$errors.password)
