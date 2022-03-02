@@ -61,6 +61,7 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li>
                 <a class="dropdown-item" style="font-size: 13px;" use:link href="/admin">ADMIN</a>
+                <a class="dropdown-item" style="font-size: 13px;" use:link href="/adminrule">ADMIN RULE</a>
                 <a class="dropdown-item" style="font-size: 13px;" use:link href="/domain">DOMAIN</a>
               </li>
             </ul>

@@ -7,6 +7,7 @@
 	import Home from "./pages/home/Home.svelte";
 	import Company from "./pages/company/Company.svelte";
 	import Admin from "./pages/admin/Admin.svelte";
+	import Adminrule from "./pages/adminrule/Adminrule.svelte";
 	import Setting from "./pages/setting/Setting.svelte";
 	import NotFound from "./pages/NotFound.svelte";
 	export let table_header_font;
@@ -29,6 +30,13 @@
 			}),
 			"/company": wrap({
 				component: Company,
+			}),
+			"/adminrule": wrap({
+				component: Adminrule,
+				props: {
+					table_header_font: table_header_font,
+					table_body_font: table_body_font,
+				},
 			}),
 			"/admin": wrap({
 				component: Admin,

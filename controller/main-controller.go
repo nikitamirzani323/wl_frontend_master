@@ -59,7 +59,7 @@ func Init(c *fiber.Ctx) error {
 			"page":            client.Page,
 			"master":          client.Master,
 		}).
-		Post(PATH + "api/home")
+		Post(PATH + "api/valid")
 	if err != nil {
 		log.Println(err.Error())
 	}
